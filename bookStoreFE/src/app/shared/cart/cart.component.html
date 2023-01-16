@@ -1,0 +1,38 @@
+<nz-card
+  style="width: 250px"
+  [nzCover]="coverTemplate"
+  [nzActions]="[actionSetting]"
+  [nzHoverable]="true"
+>
+  <nz-card-meta [nzTitle]="data.title"> </nz-card-meta>
+  <h3>Giá :{{ data.price | currency: "VND":true }}</h3>
+</nz-card>
+
+<!-- <nz-card class="cart" [nzHoverable]="true">
+  < [nzActions]="[actionSetting, actionEdit, actionEllipsis]" -->
+
+<!-- <nz-card-meta [nzTitle]="data.title"></nz-card-meta> -->
+<!-- <div class="cart-info">
+    <h3 class="cart-title">{{ data.title }}</h3>
+    <p>{{ data.price | currency: "VND":true }}</p>
+    <p>Đã bán:100</p>
+    <i nz-icon nzType="shopping-cart"></i>
+    <i nz-icon nzType="edit"></i>
+  </div> -->
+<!-- </nz-card> -->
+<ng-template #coverTemplate>
+  <img
+    alt="example"
+    [src]="getLink(data.image)"
+    (click)="navigateToDetail(data)"
+  />
+</ng-template>
+<ng-template #actionSetting>
+  <i
+    nz-icon
+    nzType="shopping-cart"
+    class="cart-shopping-icon"
+    style="font-size: 30px"
+    (click)="handleAddCart(data)"
+  ></i>
+</ng-template>

@@ -1,0 +1,163 @@
+<div class="login">
+  <form [formGroup]="loginForm" class="login-form" *ngIf="isLogin$ | async">
+    <div class="d-flex algin-center justify-center">
+      <img src="assets/icon/logo.webp" alt="" (click)="navigate('home')" />
+    </div>
+    <label for="user">Tài khoản</label>
+    <input type="text" id="user" nz-input formControlName="email" />
+    <div
+      class="red-text"
+      *ngIf="
+        loginForm.controls['email'].hasError('required') &&
+        loginForm.controls['email'].touched
+      "
+    >
+      Is required
+    </div>
+    <div
+      class="red-text"
+      *ngIf="
+        loginForm.controls['email'].hasError('email') &&
+        loginForm.controls['email'].touched
+      "
+    >
+      Invalid email!
+    </div>
+    <label for="password">Mật khẩu</label>
+    <input type="password" id="password" nz-input formControlName="password" />
+    <div
+      *ngIf="
+        loginForm.controls['password'].hasError('required') &&
+        loginForm.controls['password'].touched
+      "
+    >
+      Is required
+    </div>
+    <button nz-button class="mt-16" (click)="login()" nzBlock>Đăng nhập</button>
+    <div class="login-desc mt-16">
+      <span>Bạn chưa có tài khoản? </span>
+      <a (click)="toggleLogin()">Đăng kí</a>
+    </div>
+  </form>
+  <form
+    class="login-form"
+    [formGroup]="registerForm"
+    *ngIf="isRegister$ | async"
+  >
+    <div class="d-flex algin-center justify-center">
+      <img src="assets/icon/logo.webp" alt="" (click)="navigate('home')" />
+    </div>
+    <label for="email">email</label>
+
+    <input type="text" id="email" nz-input formControlName="email" />
+    <div
+      class="red-text"
+      *ngIf="
+        registerForm.controls['email'].hasError('required') &&
+        registerForm.controls['email'].touched
+      "
+    >
+      Is required
+    </div>
+    <div
+      class="red-text"
+      *ngIf="
+        registerForm.controls['email'].hasError('email') &&
+        registerForm.controls['email'].touched
+      "
+    >
+      Invalid email!
+    </div>
+    <label for="password">Mật khẩu</label>
+    <input type="password" id="password" nz-input formControlName="password" />
+    <div
+      class="red-text"
+      *ngIf="
+        registerForm.controls['password'].hasError('required') &&
+        registerForm.controls['password'].touched
+      "
+    >
+      Is required
+    </div>
+    <label for="sex">Giới tính</label>
+    <div>
+      <nz-radio-group formControlName="sex">
+        <label nz-radio nzValue="male">male</label>
+        <label nz-radio nzValue="female">female</label>
+      </nz-radio-group>
+    </div>
+    <div>
+      <label for="dob">Ngày sinh</label>
+      <div>
+        <nz-date-picker
+          nzPlaceHolder="Vui lòng nhập ngày sinh"
+          formControlName="dob"
+          [nzDisabledDate]="disabledDate"
+          style="width: 100%"
+        ></nz-date-picker>
+      </div>
+    </div>
+
+    <label for="fullname">Họ và tên</label>
+    <input type="text" id="fullname" nz-input formControlName="fullname" />
+    <div
+      class="red-text"
+      *ngIf="
+        registerForm.controls['fullname'].hasError('required') &&
+        registerForm.controls['fullname'].touched
+      "
+    >
+      Is required
+    </div>
+    <label for="address">Địa chỉ</label>
+    <input type="text" id="address" nz-input formControlName="address" />
+    <div
+      class="red-text"
+      *ngIf="
+        registerForm.controls['address'].hasError('required') &&
+        registerForm.controls['address'].touched
+      "
+    >
+      Is required
+    </div>
+    <label for="phone_number">Số điện thoại</label>
+    <input
+      type="text"
+      id="phone_number"
+      nz-input
+      formControlName="phone_number"
+    />
+    <div
+      class="red-text"
+      *ngIf="
+        registerForm.controls['phone_number'].hasError('required') &&
+        registerForm.controls['phone_number'].touched
+      "
+    >
+      Is required
+    </div>
+    <div
+      class="red-text"
+      *ngIf="
+        registerForm.controls['phone_number'].hasError('pattern') &&
+        registerForm.controls['phone_number'].touched
+      "
+    >
+      Số điện thoại không đúng
+    </div>
+    <button
+      nz-button
+      type="submit"
+      class="mt-16"
+      nzBlock
+      (click)="register()"
+      [disabled]="registerForm.invalid"
+    >
+      Đăng kí
+    </button>
+    <div class="login-desc mt-16">
+      <span>Bạn đã có tài khoản? </span>
+      <a (click)="toggleRegister()"> Đăng nhập</a>
+    </div>
+  </form>
+</div>

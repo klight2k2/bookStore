@@ -1,0 +1,20 @@
+.cart{
+  width: 250px;
+  height: 350px;
+  &-img{
+    height: 200px;
+  }
+}
+
+::ng-deep .ant-card-cover{
+  padding:1px;
+}
+::ng-deep .ant-card-body{
+  padding: 10px 20px;
+}
+
+::ng-deep i{
+  &:hover{
+    color: #ff4157 !important;
+  }
+}

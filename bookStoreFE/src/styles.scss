@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+  box-sizing: inherit;
+}
+
+$primary-color:#ff4157;
+
+@import './assets/variable.scss';
+
+
+html{
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+li,ul,p{
+  padding: 0;
+  margin: 0;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+}
+.full-height{
+  height: 100%;
+}
+.d-flex{
+  display: flex !important;
+
+
+}
+
+::ng-deep .ant-btn-primary{
+  background: red !important;
+    color:#fff !important;
+  }
+
+$positions:(start,end,between,baseline,center,flex-end);
+
+@each $position in $positions{
+  .justify-#{$position}{
+    justify-content:$position;
+  }
+   .align-#{$position}{
+    align-items: $position;
+   }
+}
+
+
+
+$sizes:(0,2,4,8,10,12,16,20,24,32);
+
+@each $size in $sizes{
+  .mt-#{$size}{
+    margin-top: #{$size}px !important;
+  }
+  .mr-#{$size} {
+    margin-right: #{$size}px !important;
+  }
+  .mb-#{$size} {
+    margin-bottom: #{$size}px !important;
+    }
+  .ml-#{$size} {
+    margin-left: #{$size}px !important;
+  }
+  .pt-#{$size} {
+    padding-top: #{$size}px !important;
+  }
+  .pr-#{$size} {
+    padding-right: #{$size}px !important;
+  }
+  .pl-#{$size} {
+    padding-left: #{$size}px !important;
+  }
+  .pb-#{$size} {
+    padding-bottom: #{$size}px !important;
+  }
+}
+
+
